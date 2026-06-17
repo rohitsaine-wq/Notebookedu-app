@@ -1,1 +1,24 @@
-W2J1aWxkXQogICMgTmV0bGlmeSBydW5zIG5wbSBpbnN0YWxsIGF1dG9tYXRpY2FsbHkgKGJlY2F1c2UgcGFja2FnZS5qc29uIGV4aXN0cyksCiAgIyB0aGVuIHJ1bnMgdGhpcyBjb21tYW5kIHRvIGdlbmVyYXRlIGFsbCB0aGUgbm90ZXMgcGFnZXMgZnJvbSBTdXBhYmFzZS4KICBjb21tYW5kID0gIm5wbSBydW4gYnVpbGQiCiAgcHVibGlzaCA9ICIuIgoKW1toZWFkZXJzXV0KICBmb3IgPSAiL25vdGVzLyoiCiAgW2hlYWRlcnMudmFsdWVzXQogICAgQ2FjaGUtQ29udHJvbCA9ICJwdWJsaWMsIG1heC1hZ2U9ODY0MDAsIHN0YWxlLXdoaWxlLXJldmFsaWRhdGU9NjA0ODAwIgogICAgWC1Db250ZW50LVR5cGUtT3B0aW9ucyA9ICJub3NuaWZmIgoKW1toZWFkZXJzXV0KICBmb3IgPSAiL3NpdGVtYXAueG1sIgogIFtoZWFkZXJzLnZhbHVlc10KICAgIENvbnRlbnQtVHlwZSA9ICJhcHBsaWNhdGlvbi94bWw7IGNoYXJzZXQ9VVRGLTgiCiAgICBDYWNoZS1Db250cm9sID0gInB1YmxpYywgbWF4LWFnZT04NjQwMCIKCltbaGVhZGVyc11dCiAgZm9yID0gIi8qIgogIFtoZWFkZXJzLnZhbHVlc10KICAgIFgtRnJhbWUtT3B0aW9ucyA9ICJERU5ZIgogICAgWC1Db250ZW50LVR5cGUtT3B0aW9ucyA9ICJub3NuaWZmIgogICAgUmVmZXJyZXItUG9saWN5ID0gInN0cmljdC1vcmlnaW4td2hlbi1jcm9zcy1vcmlnaW4iCg==
+[build]
+  # Netlify runs npm install automatically (because package.json exists),
+  # then runs this command to generate all the notes pages from Supabase.
+  command = "npm run build"
+  publish = "."
+
+[[headers]]
+  for = "/notes/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=604800"
+    X-Content-Type-Options = "nosniff"
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=UTF-8"
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"

@@ -1,1 +1,17 @@
-IyBOb3RlYm9vayDigJMgTmV0bGlmeSBSZWRpcmVjdHMKIyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAKIyBIT1cgTkVUTElGWSBTRVJWRVMgRklMRVM6CiMgICAxLiBJZiBhIHJlYWwgZmlsZSBleGlzdHMgYXQgdGhlIFVSTCBwYXRoIOKGkiBzZXJ2ZSBpdCBkaXJlY3RseSAoaGlnaGVzdCBwcmlvcml0eSkKIyAgIDIuIElmIG5vIGZpbGUgZXhpc3RzIOKGkiBmYWxsIHRocm91Z2ggdG8gdGhlIHJ1bGVzIGJlbG93CiMKIyBCZWNhdXNlIGdlbmVyYXRlLW5vdGVzLmpzIGNyZWF0ZXMgcmVhbCBIVE1MIGZpbGVzIGF0IGV2ZXJ5IG5vdGVzIFVSTCwgTmV0bGlmeQojIHNlcnZlcyB0aGVtIGRpcmVjdGx5IOKAlCBubyByZWRpcmVjdCBydWxlIG5lZWRlZCBmb3IgL25vdGVzLyogYXQgYWxsLgojCiMgVGhlIE9OTFkgZmFsbGJhY2sgcnVsZSBuZWVkZWQgaXMgdGhlIFNQQSBjYXRjaC1hbGwgYXQgdGhlIGJvdHRvbSwKIyB3aGljaCBoYW5kbGVzIHRoZSBtYWluIGFwcCdzIGhhc2ggcm91dGluZyBhbmQgYW55IGZ1dHVyZSBkZWVwIGxpbmtzLgojIOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgAoKIyBTUEEgZmFsbGJhY2sg4oCUIGFueSBVUkwgd2l0aG91dCBhIG1hdGNoaW5nIGZpbGUgZ2V0cyB0aGUgbWFpbiBhcHAuCiMgU3RhdGljIGZpbGVzIChub3RlcyBwYWdlcywgc2l0ZW1hcC54bWwsIHByaXZhY3kuaHRtbCwgdGVybXMuaHRtbCkgYXJlCiMgYWx3YXlzIHNlcnZlZCBkaXJlY3RseSBhbmQgYXJlIG5ldmVyIGFmZmVjdGVkIGJ5IHRoaXMgcnVsZS4KLyogICAgL2luZGV4Lmh0bWwgICAgMjAwCg==
+# Notebook – Netlify Redirects
+# ─────────────────────────────────────────────────────────────────────────────
+# HOW NETLIFY SERVES FILES:
+#   1. If a real file exists at the URL path → serve it directly (highest priority)
+#   2. If no file exists → fall through to the rules below
+#
+# Because generate-notes.js creates real HTML files at every notes URL, Netlify
+# serves them directly — no redirect rule needed for /notes/* at all.
+#
+# The ONLY fallback rule needed is the SPA catch-all at the bottom,
+# which handles the main app's hash routing and any future deep links.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# SPA fallback — any URL without a matching file gets the main app.
+# Static files (notes pages, sitemap.xml, privacy.html, terms.html) are
+# always served directly and are never affected by this rule.
+/*    /index.html    200
